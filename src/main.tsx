@@ -8,11 +8,9 @@ import {
 } from "react-router-dom";
 
 import "./index.css";
-//import TimersView from "./views/TimersView";
 import Stopwatch from "./components/timers/Stopwatch";
 import Countdown from "./components/timers/Countdown";
 import Tabata from "./components/timers/Tabata";
-//import DocumentationView from "./views/DocumentationView";
 
 import StopwatchImg from "./images/stopwatch_half.jpg";
 import HourglassImg from "./images/hourglass_half.jpg";

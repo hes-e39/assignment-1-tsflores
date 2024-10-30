@@ -1,9 +1,9 @@
 
 export function CalculateTime( { time }: number ): Array<number | string> {
 
-    const hours: number = Math.floor(time / 3600);
-    const minutes: number  = Math.floor((time - (hours * 3600)) / 60);
-    const seconds: number  = time - (hours*3600) - (minutes * 60);
+    const hours: number = Math.floor((time / 3600000) % 60);
+    const minutes: number  = Math.floor((time / 60000) % 60);
+    const seconds: number  = Math.floor((time / 1000) % 60);
     const centiseconds: number  = (time / 10) % 100;
 
     const hoursFormat = hours < 10 ? `0${hours}` : hours;
