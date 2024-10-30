@@ -54,19 +54,40 @@ const Stopwatch = () => {
 
 export const TimerDisplay = (props: number) => {
     
-    const timeArray: Array<number | string> = CalculateTime( props );
+    // const timeArray: Array<number | string> = CalculateTime( props );
+    const objTime = CalculateTime ( props );
 
-    return (
-        <div className="timer-display">
-            <p className="timer-text">{timeArray[0]}</p>
-            <span>:</span>
-            <p className="timer-text">{timeArray[1]}</p>
-            <span>:</span>
-            <p className="timer-text">{timeArray[2]}</p>
-            <span>.</span>
-            <p className="timer-text">{timeArray[3]}</p>
+//     return (
+//         <div className="timer-display">
+//             <p className="timer-text">{timeArray[0]}</p>
+//             <span>:</span>
+//             <p className="timer-text">{timeArray[1]}</p>
+//             <span>:</span>
+//             <p className="timer-text">{timeArray[2]}</p>
+//             <span>.</span>
+//             <p className="timer-text">{timeArray[3]}</p>
+//         </div>
+//     );
+// };
+
+return (
+    <div className='countdown'>
+        <h1>Click Start button to engage stopwatch</h1>
+        <div className='content'>
+            {Object.entries(objTime).map((el) => {
+                const label = el[0];
+                const value = el[1];
+                return (
+                    <div className='box' key={label}>
+                        <div className='value'>
+                            <span>{value}</span>
+                        </div>
+                        <span className='label'> {label} </span>
+                    </div>
+                );
+            })}
         </div>
-    );
-};
+    </div>
+);}
 
 export default Stopwatch;
