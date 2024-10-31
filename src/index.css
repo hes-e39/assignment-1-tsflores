@@ -91,6 +91,10 @@ li a:hover {
 	color: #f5f5f5;
 }
 
+.btn:hover{
+	opacity: 75%;
+}
+
 .btn-one {
 	background-color: #322738;
 }
@@ -106,6 +110,8 @@ li a:hover {
 	justify-content: center;
 	margin: auto;
 	gap: 12px;
+	padding-top:2rem;
+	padding-bottom:2rem;
 }
 .countdown h2 {
 	margin-bottom: 20px;
@@ -137,18 +143,26 @@ li a:hover {
 	box-shadow: -2px 0px 5px 1px #232423ad;
 }
 
-button.with-text{
+.with-text{
+	display: flex;
 	width: auto;
-	background-color:rgba(255,255,255,0.1);
+	background-color:#322738;
 	border-radius:10px;
 	padding: 10px 20px;
-	font-size: 1rem;
+	font-size: 2rem;
 	line-height: 36px;
+	font-family: "Permanent Marker", Verdana, sans-serif;
+	cursor: pointer
   }
-  button.with-text svg{
+
+ .with-text svg{
 	width: 2rem;
 	float:left;
-	margin-right: 0.25rem;
+	margin-right: 0.5rem;
+  }
+
+  .with-text:hover{
+	opacity: 75%;
   }
 
   .countdown .value::after {

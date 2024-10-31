@@ -1,15 +1,12 @@
 import { useState, useEffect } from 'react';
-import { CalculateTime } from '../../utils/helpers.ts';
 import { ButtonOptions, SettingsButton } from '../generic/Buttons.tsx';
 import { TimerDisplay } from '../generic/TimerDisplay.tsx';
 import { Settings } from '../generic/Settings.tsx';
 
 const Countdown = () => {
-    //let msgMessage: string = 'Countdown reached.';
-
     const [isActive, setIsActive] = useState<boolean>(false);
     const [isPaused, setIsPaused] = useState<boolean>(true);
-    const [time, setTime] = useState<number>(1000*60);
+    const [time, setTime] = useState<number>(7530000);
     const [showSettings, setShowSettings] = useState(false);
 
     useEffect(() => {
@@ -43,11 +40,19 @@ const Countdown = () => {
         setTime(0);
     };
 
+    const handleSettings = () => {
+        if (showSettings) {
+            setShowSettings(false);
+        } else {
+            setShowSettings(true);
+        }
+    };
+
     return (
         <div className="timer-container">
-            <h3>Use the settings button to set countdown timer.</h3>
-            <SettingsButton />
-            {showSettings ? <Settings /> : <TimerDisplay time = {time} flag = { true }/>}
+            <h2>Use the settings button to set countdown timer.</h2>
+            <SettingsButton showSettings={showSettings} handleSettings={handleSettings} />
+            {showSettings ? <Settings /> : <TimerDisplay time={time} flag={true} />}
             {showSettings ? <div /> : <ButtonOptions active={isActive} isPaused={isPaused} handleStart={handleStart} handlePauseResume={handlePauseResume} handleReset={handleReset} />}
         </div>
     );
