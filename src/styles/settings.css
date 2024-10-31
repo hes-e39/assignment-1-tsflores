@@ -1,0 +1,25 @@
+/* .settingsContainer {
+    display: flex;
+    flex-direction: column;
+} */
+
+label{
+    font-size: 2rem;
+    display: block;
+}
+
+.slider{
+
+    height: 40px;
+    border: 2px solid red;
+    border-radius: 20px;
+
+}
+/* 
+.thumb{
+
+}
+
+.track{
+
+} */

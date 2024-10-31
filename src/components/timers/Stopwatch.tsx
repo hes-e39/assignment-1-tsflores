@@ -1,14 +1,13 @@
 import { useState, useEffect } from 'react';
-import { CalculateTime } from '../../utils/helpers.ts';
 import { ButtonOptions } from '../generic/Buttons.tsx';
+import { TimerDisplay } from '../generic/TimerDisplay.tsx';
 
 const Stopwatch = () => {
     const [isActive, setIsActive] = useState<boolean>(false);
     const [isPaused, setIsPaused] = useState<boolean>(true);
     const [time, setTime] = useState<number>(0);
-   
+
     useEffect(() => {
-        
         let intervalID: null | number | undefined = null;
 
         if (isActive && isPaused === false) {
@@ -27,11 +26,11 @@ const Stopwatch = () => {
         setIsActive(true);
         setIsPaused(false);
     };
- 
+
     const handlePauseResume = () => {
         setIsPaused(!isPaused);
     };
- 
+
     const handleReset = () => {
         setIsActive(false);
         setTime(0);
@@ -39,55 +38,11 @@ const Stopwatch = () => {
 
     return (
         <div className="timer-container">
-            <TimerDisplay time = {time} />
-            <ButtonOptions 
-            active={isActive}
-            isPaused={isPaused}
-            handleStart={handleStart}
-            handlePauseResume={handlePauseResume}
-            handleReset={handleReset}
-            />
-
+            <h3>Click Start button to engage stopwatch.</h3>
+            <TimerDisplay time = { time } flag = { true } />
+            <ButtonOptions active={isActive} isPaused={isPaused} handleStart={handleStart} handlePauseResume={handlePauseResume} handleReset={handleReset} />
         </div>
     );
 };
-
-export const TimerDisplay = (props: number) => {
-    
-    // const timeArray: Array<number | string> = CalculateTime( props );
-    const objTime = CalculateTime ( props );
-
-//     return (
-//         <div className="timer-display">
-//             <p className="timer-text">{timeArray[0]}</p>
-//             <span>:</span>
-//             <p className="timer-text">{timeArray[1]}</p>
-//             <span>:</span>
-//             <p className="timer-text">{timeArray[2]}</p>
-//             <span>.</span>
-//             <p className="timer-text">{timeArray[3]}</p>
-//         </div>
-//     );
-// };
-
-return (
-    <div className='countdown'>
-        <h1>Click Start button to engage stopwatch</h1>
-        <div className='content'>
-            {Object.entries(objTime).map((el) => {
-                const label = el[0];
-                const value = el[1];
-                return (
-                    <div className='box' key={label}>
-                        <div className='value'>
-                            <span>{value}</span>
-                        </div>
-                        <span className='label'> {label} </span>
-                    </div>
-                );
-            })}
-        </div>
-    </div>
-);}
 
 export default Stopwatch;

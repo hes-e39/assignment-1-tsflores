@@ -2,6 +2,7 @@
 export const RETIREMENT_DATE: Date = new Date("2025-03-21T17:00:00");
 export const BIRTHDATE: Date = new Date("2024-11-23T19:30:00");
 
+
 interface timeProps {
     hours: number | string;
     minutes: number | string;
@@ -9,12 +10,12 @@ interface timeProps {
     centiseconds: number | string;
 }
 
-export function CalculateTime( { time } ): timeProps {
+export function CalculateTime( props ): timeProps {
 
-    const hoursNumber: number = Math.floor((time / 3600000) % 60);
-    const minutesNumber: number  = Math.floor((time / 60000) % 60);
-    const secondsNumber: number  = Math.floor((time / 1000) % 60);
-    const centisecondsNumber: number  = (time / 10) % 100;
+    const hoursNumber: number = Math.floor((props.time / 3600000) % 60);
+    const minutesNumber: number  = Math.floor((props.time / 60000) % 60);
+    const secondsNumber: number  = Math.floor((props.time / 1000) % 60);
+    const centisecondsNumber: number  = (props.time / 10) % 100;
 
     const hours = hoursNumber < 10 ? `0${hoursNumber}` : hoursNumber;
     const minutes = minutesNumber < 10 ? `0${minutesNumber}` : minutesNumber;

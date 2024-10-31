@@ -73,7 +73,7 @@ const router = createHashRouter([
 
 //biome-ignore lint/style/noNonNullAssertion: root html element is there
 createRoot(document.getElementById("root")!).render(
-  <StrictMode>
+   <StrictMode>
     <RouterProvider router={router} />
-  </StrictMode>
+   </StrictMode>
 );

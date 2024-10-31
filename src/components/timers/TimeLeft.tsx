@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { CalculateTimeRemaining } from '../../utils/helpers.ts';
 import { RETIREMENT_DATE } from '../../utils/helpers.ts';
+import { TimerDisplay } from '../generic/TimerDisplay.tsx';
 
 const TimeLeft = ({ targetDate }) => {
 
@@ -26,24 +27,13 @@ const TimeLeft = ({ targetDate }) => {
 		};
 	}, []);
 
-    return (
-		<div className='countdown'>
-			<h1>Days until {retirementFlag ? "Retirement Celebration!!!" : "Birthday Celebration!!!"}</h1>
-			<div className='content'>
-				{Object.entries(timeLeft).map((el) => {
-					const label = el[0];
-					const value = el[1];
-					return (
-						<div className='box' key={label}>
-							<div className='value'>
-								<span>{value}</span>
-							</div>
-							<span className='label'> {label} </span>
-						</div>
-					);
-				})}
+	return (
+		<div className="timer-container">
+			<div className = "text-time-left">
+            <h1>Time until {retirementFlag ? "Retirement Celebration!!!" : "Birthday Celebration!!!"}</h1>
 			</div>
-		</div>
+			<TimerDisplay time = { timeLeft } flag = { false } />
+        </div>
 	);
 
 };
