@@ -47,7 +47,7 @@ const Stopwatch = () => {
 
     return (
         <div className="timer-container">
-            <h3>Click Start button to engage stopwatch.</h3>
+            <h2>Click Start button to engage stopwatch.</h2>
             <TimerDisplay time = { time } flag = { true } />
             <ButtonOptions active={isActive} isPaused={isPaused} handleStart={handleStart} handlePauseResume={handlePauseResume} handleReset={handleReset} />
         </div>
