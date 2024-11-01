@@ -1,30 +1,77 @@
-import { useState, useEffect } from 'react';
-import { ButtonOptions, SettingsButton } from '../generic/Buttons.tsx';
+import { useState, useEffect, useContext, useRef } from 'react';
+import { ButtonOptions } from '../generic/Buttons.tsx';
 import { TimerDisplay } from '../generic/TimerDisplay.tsx';
-import { Settings } from '../generic/Settings.tsx';
+import { SettingsContext } from '../generic/SettingsContext.tsx';
+//import { Settings } from '../generic/Settings.tsx';
 
 const Countdown = () => {
+
+   
+    const setInfo = useContext(SettingsContext);
+
+    const hoursInMilli = setInfo.hours * 3600 * 1000;
+    const minInMilli = setInfo.minutes * 60 * 1000;
+    const secInMilli = setInfo.seconds * 1000;
+    const nextSeconds = hoursInMilli + minInMilli + secInMilli; 
+    
+
     const [isActive, setIsActive] = useState<boolean>(false);
     const [isPaused, setIsPaused] = useState<boolean>(true);
-    const [time, setTime] = useState<number>(7530000);
-    const [showSettings, setShowSettings] = useState(false);
+    const [secondsLeft, setSecondsLeft] = useState<number>(nextSeconds);
+    //const isPausedRef = useRef(isPaused);
+    // const isActiveRef = useRef(isActive);
+    const secondsLeftRef = useRef(secondsLeft);
+
+    function tick() {
+        secondsLeftRef.current = secondsLeftRef.current - 10;
+        setSecondsLeft(secondsLeftRef.current);
+    }
 
     useEffect(() => {
+
+        //setSecondsLeft(secondsLeftRef.current);
+
+        function switchMode() {
+            //const nextSeconds = hoursInMilli + minInMilli + secInMilli;
+
+            setSecondsLeft(nextSeconds);
+            secondsLeftRef.current = nextSeconds;
+        }
+
         let intervalID: null | number | undefined = null;
 
         if (isActive && isPaused === false) {
+            switchMode();
             intervalID = setInterval(() => {
-                if (time > 0) {
-                    setTime(time => time - 10);
+                if (isPaused) {
+                    return;
+                }
+                if (secondsLeftRef.current !== 0) {
+                    tick();
+                } else {
                 }
             }, 10);
-        } else {
+        }else{
             clearInterval(intervalID);
         }
+
         return () => {
             clearInterval(intervalID);
         };
-    }, [isActive, isPaused, time]);
+
+        // if (isActive === true) {
+        //     intervalID = setInterval(() => {
+        //         if (time > 0) {
+        //             setTime(time => time - 10);
+        //         }
+        //     }, 10);
+        // } else {
+        //     clearInterval(intervalID);
+        // }
+        // return () => {
+        //     clearInterval(intervalID);
+        // };
+    }, [setInfo, isPaused, isActive]);
 
     const handleStart = () => {
         setIsActive(true);
@@ -37,23 +84,12 @@ const Countdown = () => {
 
     const handleReset = () => {
         setIsActive(false);
-        setTime(0);
-    };
-
-    const handleSettings = () => {
-        if (showSettings) {
-            setShowSettings(false);
-        } else {
-            setShowSettings(true);
-        }
     };
 
     return (
         <div className="timer-container">
-            <h2>Use the settings button to set countdown timer.</h2>
-            <SettingsButton showSettings={showSettings} handleSettings={handleSettings} />
-            {showSettings ? <Settings /> : <TimerDisplay time={time} flag={true} />}
-            {showSettings ? <div /> : <ButtonOptions active={isActive} isPaused={isPaused} handleStart={handleStart} handlePauseResume={handlePauseResume} handleReset={handleReset} />}
+            <TimerDisplay time={secondsLeft} flag={true} />
+            <ButtonOptions active={isActive} isPaused={isPaused} handleStart={handleStart} handlePauseResume={handlePauseResume} handleReset={handleReset} />
         </div>
     );
 };

@@ -1,7 +1,17 @@
 
+/*
+    user defined dates to target in the TimeLeft component
+*/
+
 export const RETIREMENT_DATE: Date = new Date("2025-03-21T17:00:00");
 export const BIRTHDATE: Date = new Date("2024-11-23T19:30:00");
 
+
+/*
+    helper function used to calculate the time remaining.  The time comes in as milliseconds and then is broken down into
+    hours, minutes, seconds, and centiseconds.  For display purposes, a comparison is made to ensure 2 digits are shown
+    on the timer.
+*/
 
 interface timeProps {
     hours: number | string;
@@ -27,6 +37,10 @@ export function CalculateTime( props ): timeProps {
 
 }
 
+/* 
+    helper function that takes target date as a prop and then compares it to the current date.  The difference between the two
+    is then divided into days, hours, minutes, and seconds and returned as an object.
+*/
 export function CalculateTimeRemaining(targetDate: Date) {
     
     const currentDate: Date = new Date();

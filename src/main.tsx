@@ -12,13 +12,15 @@ import Stopwatch from "./components/timers/Stopwatch";
 import TimeLeft from "./components/timers/TimeLeft";
 
 import { RETIREMENT_DATE, BIRTHDATE} from './utils/helpers.ts';
-import Countdown from "./components/timers/Countdown";
-// import Tabata from "./components/timers/Tabata";
+//import Countdown from "./components/timers/Countdown";
+import CountdownWrapper from "./components/timers/CountdownWrapper.tsx";
+import Tabata from "./components/timers/Tabata";
 
 import StopwatchImg from "./images/stopwatch_half.jpg";
 import HourglassImg from "./images/hourglass_half.jpg";
 import BirthdayImg from "./images/verticalcake_half.jpg";
 import RetirementImg from "./images/retirementTimer_half.jpg";
+import TabataImg from "./images/tabata_half.jpg";
 
 const PageIndex = () => {
   return (
@@ -37,6 +39,9 @@ const PageIndex = () => {
         </li>
         <li>
           <Link to="/retirement"><img src = {RetirementImg} alt="Retirement"/></Link>
+        </li>
+        <li>
+          <Link to="/tabata"><img src = {TabataImg} alt="Tabata"/></Link>
         </li>
       </ul>
       <Outlet />
@@ -57,7 +62,7 @@ const router = createHashRouter([
       {
         //index: true,
         path: "/countdown",
-        element: <Countdown />,
+        element: <CountdownWrapper />,
       },
       {
         path: "/birthday",
@@ -66,6 +71,10 @@ const router = createHashRouter([
       {
         path: "/retirement",
         element: <TimeLeft targetDate = { RETIREMENT_DATE } />,
+      },
+      {
+        path: "/tabata",
+        element: <Tabata />,
       },
     ],
   },
