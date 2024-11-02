@@ -31,12 +31,10 @@ const Countdown = () => {
 
         let intervalID: null | number | undefined = null;
 
-        if (isActive && isPaused === false) {
+        if (isActive && !isPaused) {
             
             intervalID = setInterval(() => {
-                if (isPaused) {
-                    return;
-                }
+                if (isPaused) return;
                 if (secondsLeftRef.current !== 0) {
                     secondsLeftRef.current = secondsLeftRef.current - 10;
                     setSecondsLeft(secondsLeftRef.current);

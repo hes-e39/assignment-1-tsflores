@@ -9,7 +9,7 @@ export const TabataStats = (props) => {
             <div className="stats-content">
                 <div className="stats-box">
                     <div className="stats-value">
-                        <span>0</span>
+                        <span>{props.roundsCompleted}</span>
                     </div>
                     <span className="tabata-text">rounds completed</span>
                 </div>
@@ -19,7 +19,7 @@ export const TabataStats = (props) => {
             <div className="stats-content">
                 <div className="stats-box">
                     <div className="stats-value">
-                        <span>0</span>
+                        <span>{props.timeElapsed}</span>
                     </div>
                     <span className="tabata-text">total time</span>
                 </div>

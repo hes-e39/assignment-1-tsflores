@@ -50,12 +50,14 @@
 }
 
 .tabata-text{
+	display: flex;
+	width: 10vw;
     font-size: 1rem;
-    text-align: center;
+	justify-content: center;
 }
 
 #tabata-title{
-	font-size: 2rem;
+	font-size: 1.5rem;
 }
 
 .stats{
@@ -140,5 +142,9 @@
 	.tabata-countdown .stats-box {
 		max-width: 50px;
 		height: 100px;
+	}
+
+	.tabata-text {
+		width: 15vw;
 	}
 }

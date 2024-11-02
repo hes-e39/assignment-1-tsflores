@@ -19,7 +19,7 @@ const Stopwatch = () => {
     useEffect(() => {
         let intervalID: null | number | undefined = null;
 
-        if (isActive && isPaused === false) {
+        if (isActive && !isPaused) {
             intervalID = setInterval(() => {
                 setTime(time => time + 10);
             }, 10);
