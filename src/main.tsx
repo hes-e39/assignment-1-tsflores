@@ -15,12 +15,14 @@ import { RETIREMENT_DATE, BIRTHDATE} from './utils/helpers.ts';
 //import Countdown from "./components/timers/Countdown";
 import CountdownWrapper from "./components/timers/CountdownWrapper.tsx";
 import Tabata from "./components/timers/Tabata";
+import XY from "./components/timers/XY.tsx";
 
 import StopwatchImg from "./images/stopwatch_half.jpg";
 import HourglassImg from "./images/hourglass_half.jpg";
 import BirthdayImg from "./images/verticalcake_half.jpg";
 import RetirementImg from "./images/retirementTimer_half.jpg";
 import TabataImg from "./images/tabata_half.jpg";
+import XYImg from "./images/xyworkout.jpg";
 
 const PageIndex = () => {
   return (
@@ -42,6 +44,9 @@ const PageIndex = () => {
         </li>
         <li>
           <Link to="/tabata"><img src = {TabataImg} alt="Tabata"/></Link>
+        </li>
+        <li>
+          <Link to="/xy"><img src = {XYImg} alt="XY"/></Link>
         </li>
       </ul>
       <Outlet />
@@ -75,6 +80,10 @@ const router = createHashRouter([
       {
         path: "/tabata",
         element: <Tabata />,
+      },
+      {
+        path: "/xy",
+        element: <XY />,
       },
     ],
   },

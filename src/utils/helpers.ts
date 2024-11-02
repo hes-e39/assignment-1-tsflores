@@ -14,10 +14,10 @@ export const BIRTHDATE: Date = new Date("2024-11-23T19:30:00");
 */
 
 interface timeProps {
-    hours: number | string;
+    hours?: number | string;
     minutes: number | string;
     seconds: number | string;
-    centiseconds: number | string;
+    centiseconds?: number | string;
 }
 
 export function CalculateTime( props ): timeProps {

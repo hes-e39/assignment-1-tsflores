@@ -1,5 +1,11 @@
 import { CalculateTime } from '../../utils/helpers';
 
+/* component details 
+    - reusable component that displays the the appropriate time elements for the stopwatch or countdown timers
+    - takes an object entries and together with map creates the elements and renders the appropriate time
+    - CalculateTime is a function that takes the milliseconds and converts
+*/
+
 export const TimerDisplay = props => {
     let objTime: number | string | object = 0;
 

@@ -18,17 +18,24 @@ body {
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: 1rem;
   text-align: center;
   margin: 0;
-  padding-top: 1.5rem;
+  padding-top: 1rem;
+}
+
+h2{
+	margin: 0;
+	font-size: 0.75rem;
+	padding-bottom: 0.75rem;
 }
 
 h3{
   text-align: center;
+  font-size: 0.75rem;
   margin: 0;
-  padding-top: 1rem;
-  padding-bottom: 2rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 ul {
@@ -117,10 +124,6 @@ li a:hover {
 	padding-top:2rem;
 	padding-bottom:2rem;
 }
-.countdown h2 {
-	margin-bottom: 20px;
-	font-size: 50px;
-}
 
 .countdown .box {
 	width: calc(100% / 4);
@@ -207,15 +210,25 @@ li a:hover {
 	}
 }
 
-@media screen and (min-width: 790px) {
+@media screen and (min-width: 1070px) {
+	h1{
+		font-size: 2.5rem;
+	}
+
+	h2{
+		font-size:1.5rem;
+	}
+	h3{
+		font-size: 1rem;
+	}
 	.countdown .value {
 		font-size: 100px;
-		height: 200px;
-		width: 200px;
+		height: 180px;
+		width: 180px;
 	}
 	.countdown .box {
-		max-width: 200px;
-		height: 250px;
+		max-width: 180px;
+		height: 200px;
 	}
 }
 

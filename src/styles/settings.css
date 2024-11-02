@@ -52,15 +52,15 @@
     }
 }
 
-@media screen and (min-width: 790px) {
+@media screen and (min-width: 1070px) {
     .settings .value {
         font-size: 100px;
-        height: 200px;
-        width: 200px;
+        height: 180px;
+        width: 180px;
     }
 
-    /* .countdown .box {
-        max-width: 200px;
-        height: 250px;
-    } */
+    .countdown .box {
+        max-width: 180px;
+        height: 200px;
+    }
 }

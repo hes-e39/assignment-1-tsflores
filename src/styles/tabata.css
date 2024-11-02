@@ -1,0 +1,144 @@
+.tabata-container {
+  aspect-ratio: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.tabata-display {
+  order: 1;
+  display: grid;
+  grid-template-columns: 50% auto;
+  grid-template-rows: repeat(1, 1fr);
+  gap: 4rem;
+  margin-bottom: 16px;
+}
+
+.tabata-countdown .tabata-content {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin: auto;
+	gap: 75px;
+	padding-top:0.5rem;
+	padding-bottom:0.5rem;
+}
+
+.tabata-countdown .tabata-box {
+	width: calc(100% / 2);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 150px;
+	max-width: 250px;
+}
+
+.tabata-countdown .tabata-value {
+	font-size: 30px;
+	font-weight: 600;
+	background-color: #322738;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 8px;
+	width: 80px;
+	height: 80px;
+	position: relative;
+	box-shadow: -2px 0px 5px 1px #232423ad;
+}
+
+.tabata-text{
+    font-size: 1rem;
+    text-align: center;
+}
+
+#tabata-title{
+	font-size: 2rem;
+}
+
+.stats{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.tabata-countdown .stats-content {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin: auto;
+	gap: 1rem;
+	padding-top:0;
+}
+
+.tabata-countdown .stats-box {
+	width: calc(100% / 2);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 150px;
+	max-width: 150px;
+}
+
+.tabata-countdown .stats-value {
+	font-size: 30px;
+	font-weight: 600;
+	background-color: #322738;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 8px;
+	width: 80px;
+	height: 80px;
+	position: relative;
+	box-shadow: -2px 0px 5px 1px #232423ad;
+}
+
+.stats-text{
+    padding: 0;
+}
+
+
+@media screen and (min-width: 550px) {
+	/* .tabata-countdown .tabata-content {
+		gap: 50px;
+	} */
+	.tabata-countdown .tabata-value {
+		font-size: 50px;
+		width: 120px;
+		height: 120px;
+	}
+	.tabata-countdown .tabata-box {
+		height: 200px;
+		max-width: 250px;
+	}
+}
+
+@media screen and (min-width: 1070px) {
+
+	.tabata-countdown .tabata-value {
+		font-size: 100px;
+		height: 180px;
+		width: 180px;
+	}
+	.tabata-countdown .tabata-box {
+		max-width: 250px;
+		height: 200px;
+	}
+
+    
+	.tabata-countdown .stats-value {
+		font-size: 36px;
+		height: 50px;
+		width: 100px;
+	}
+	.tabata-countdown .stats-box {
+		max-width: 50px;
+		height: 100px;
+	}
+}
