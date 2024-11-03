@@ -23,10 +23,10 @@ export interface timeProps {
 
 export function CalculateTime( props: timeProps ) {
 
-    const hoursNumber: number = Math.floor((props.time / 3600000) % 60);
-    const minutesNumber: number  = Math.floor((props.time / 60000) % 60);
-    const secondsNumber: number  = Math.floor((props.time / 1000) % 60);
-    const centisecondsNumber: number  = (props.time / 10) % 100;
+    const hoursNumber: number = Math.floor((Number(props.time) / 3600000) % 60);
+    const minutesNumber: number  = Math.floor((Number(props.time) / 60000) % 60);
+    const secondsNumber: number  = Math.floor((Number(props.time) / 1000) % 60);
+    const centisecondsNumber: number  = (Number(props.time) / 10) % 100;
 
     const hours = hoursNumber < 10 ? `0${hoursNumber}` : hoursNumber;
     const minutes = minutesNumber < 10 ? `0${minutesNumber}` : minutesNumber;
@@ -45,7 +45,7 @@ export function CalculateTime( props: timeProps ) {
 export function CalculateTimeRemaining(targetDate: Date) {
     
     const currentDate: Date = new Date();
-    const totalTimeLeft: number = targetDate - currentDate;
+    const totalTimeLeft: number = Number(targetDate) - Number(currentDate);
 	const days = Math.floor(totalTimeLeft / (1000 * 60 * 60 * 24));
 	const hours = Math.floor((totalTimeLeft / (1000 * 60 * 60)) % 24);
 	const minutes = Math.floor((totalTimeLeft / (1000 * 60)) % 60);

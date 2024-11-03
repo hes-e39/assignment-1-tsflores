@@ -12,18 +12,19 @@ import EnjoyShow from '../../images/enjoytheshow_half.jpg';
     - Three state varianbles to track the time remaining, to track whether the target date was hit, and to track which target date is used
     - useEffect will make a call to CalculateTimeRemaining function to get the difference between current date and target date
     - If time remains, decrement time by 1000 milliseconds and display the countdown clock
-    - The component gets used for 2 different target dates.  A refresh is required when directly switching between the two target dates.  I suspect it's because the component isn't really remounting but I can't
-      figure out how to fix this wihtout doing a hard refresh in the browser.
 */
 
+interface TimeLeftProps {
+    targetDate: Date
+}
 
-const TimeLeft = ({ targetDate }) => {
+const TimeLeft = (props: TimeLeftProps) => {
 
-    const formattedTargetDate = targetDate.toLocaleDateString();
+    const formattedTargetDate = props.targetDate.toLocaleDateString();
     const formattedRetirementDate = RETIREMENT_DATE.toLocaleDateString();
 
     const [retirementFlag, setRetirementFlag] = useState(false);
-    const [timeLeft, setTimeLeft] = useState(() => CalculateTimeRemaining(targetDate));
+    const [timeLeft, setTimeLeft] = useState(() => CalculateTimeRemaining(props.targetDate));
     const [hitTargetDate, setHitTargetDate] = useState(false);
 
     // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
@@ -34,7 +35,7 @@ const TimeLeft = ({ targetDate }) => {
 
         const timer = setInterval(() => {
             if (timeLeft.seconds >= 0) {
-                setTimeLeft(CalculateTimeRemaining(targetDate));
+                setTimeLeft(CalculateTimeRemaining(props.targetDate));
             }else{
 				setHitTargetDate(true);
                 clearInterval(timer);

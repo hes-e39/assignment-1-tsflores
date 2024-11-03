@@ -14,7 +14,7 @@ interface SettingsContextType {
 const initialSettings: SettingsContextType = {
     hours: 0,
     minutes: 0,
-    seconds: 0,
+    seconds: 0
 };
 
 //I created the interface to resolve TS errors with my inital createContext declaration; however, unclear on how to initialze the setter functions in the initialSettings
