@@ -1,3 +1,6 @@
+//did some research on the event handler with typescript but could not figure out how to resolve the onClick issue
+
+
 interface ButtonProps {
     active: boolean;
     isPaused?: boolean;
@@ -11,7 +14,7 @@ export const ButtonOptions = ({active, isPaused, handleStart, handlePauseResume,
     
     const StartButton = (
 		<div className="btn btn-one btn-start"
-			onClick={handleStart}>
+			onClick={handleStart}>  
 			Start
 		</div>
 	);
@@ -36,8 +39,13 @@ export const ButtonOptions = ({active, isPaused, handleStart, handlePauseResume,
 	);
 };
 
+interface SettingsButton {
+		showSettings: boolean;
+		handleSettings?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+}
+
 //SVG from heroicons.com 
-export const SettingsButton = ({showSettings, handleSettings}) => {
+export const SettingsButton = ({showSettings, handleSettings}: SettingsButton) => {
 	return (
 	  <div className="with-text" onClick={handleSettings}>
 		{/* biome-ignore lint/a11y/noSvgWithoutTitle: <explanation> */}

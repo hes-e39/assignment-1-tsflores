@@ -35,7 +35,7 @@ const Tabata = () => {
     }, [rounds]);
 
     useEffect(() => {
-        let intervalID: null | number | undefined = null;
+        let intervalID = 0;
 
         function switchMode() {
             const nextMode = phaseRef.current === 'Work' ? 'Rest' : 'Work';
@@ -59,7 +59,7 @@ const Tabata = () => {
         }
 
         if (isActive && !isPaused && roundsLeftRef.current !== 0) {
-            intervalID = setInterval(() => {
+            intervalID = window.setInterval(() => {
                 if (isPaused) return;
                 if (secondsLeftRef.current > 0) {
                     secondsLeftRef.current -= 1;
@@ -70,6 +70,9 @@ const Tabata = () => {
                 if (roundsLeftRef.current <= 0 && phaseRef.current === 'Work') {
                     clearInterval(intervalID);
                     setIsActive(false);
+                    setRounds(0);
+                    setWorkTarget(0);
+                    setRestTarget(0);
                 }
             }, 1000);
         } else {
@@ -124,7 +127,7 @@ const Tabata = () => {
                 <div className="content">
                     <div>
                         <input className="value" type="number" min={0} max={10} value={rounds} onChange={newValue => setRounds(Number.parseInt(newValue.target.value))} />
-                        <span className="label">rounds</span>
+                        <span className="label">circuits</span>
                     </div>
                     <div>
                         <input className="value" type="number" min={0} max={180} value={workTarget} onChange={newValue => setWorkTarget(Number.parseInt(newValue.target.value))} />
@@ -136,8 +139,7 @@ const Tabata = () => {
                     </div>
                 </div>
             </div>
-            <ButtonOptions active={isActive} isPaused={isPaused} handleStart={handleStart} handlePauseResume={handlePauseResume} handleReset={handleReset} />
-            {rounds === 0 ? <div>Must have at least one round selected. </div> : <div />}
+            {rounds === 0 ? <div>Enter number of circuits to get started. </div> :<ButtonOptions active={isActive} isPaused={isPaused} handleStart={handleStart} handlePauseResume={handlePauseResume} handleReset={handleReset} />}
         </div>
     );
 };

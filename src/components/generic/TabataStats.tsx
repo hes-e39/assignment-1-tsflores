@@ -11,7 +11,7 @@ export const TabataStats = (props) => {
                     <div className="stats-value">
                         <span>{props.roundsCompleted}</span>
                     </div>
-                    <span className="tabata-text">rounds completed</span>
+                    <span className="tabata-text">circuits completed</span>
                 </div>
             </div>
         </div>

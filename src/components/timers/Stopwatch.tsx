@@ -17,10 +17,10 @@ const Stopwatch = () => {
     const [time, setTime] = useState<number>(0);
 
     useEffect(() => {
-        let intervalID: null | number | undefined = null;
+        let intervalID = 0;
 
         if (isActive && !isPaused) {
-            intervalID = setInterval(() => {
+            intervalID = window.setInterval(() => {
                 setTime(time => time + 10);
             }, 10);
         } else {

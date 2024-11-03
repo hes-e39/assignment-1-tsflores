@@ -29,11 +29,13 @@ const Countdown = () => {
 
     useEffect(() => {
 
-        let intervalID: null | number | undefined = null;
+        let intervalID = 0;
+
+        // let intervalID: null | number = null;  initial attempt here produced TS errors so added window to setInterval
 
         if (isActive && !isPaused) {
             
-            intervalID = setInterval(() => {
+            intervalID = window.setInterval(() => {
                 if (isPaused) return;
                 if (secondsLeftRef.current !== 0) {
                     secondsLeftRef.current = secondsLeftRef.current - 10;
@@ -43,7 +45,7 @@ const Countdown = () => {
                 }
             }, 10);
         }else{
-            clearInterval(intervalID);
+            clearInterval(intervalID);  
         }
 
         return () => {

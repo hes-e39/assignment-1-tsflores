@@ -4,7 +4,7 @@
 */
 
 export const RETIREMENT_DATE: Date = new Date("2025-03-21T17:00:00");
-export const BIRTHDATE: Date = new Date("2024-11-23T19:30:00");
+export const BIRTHDATE: Date = new Date("2024-11-22T20:00:00");
 
 
 /*

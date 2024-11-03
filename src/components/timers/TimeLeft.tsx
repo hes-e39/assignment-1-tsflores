@@ -50,7 +50,7 @@ const TimeLeft = ({ targetDate }) => {
     return (
         <div className="timer-container">
             <div className="text-time-left">
-                {!hitTargetDate ? (<h1>Time until {retirementFlag ?  'Retirement Celebration!!!' : 'Birthday Celebration!!!'}</h1>) : (<h1>{retirementFlag ? 'Congratulations!!!' : 'Enjoy the Show!!!   '}</h1>)}
+                {!hitTargetDate ? (<h1>Time until {retirementFlag ?  'Retirement Celebration!!!' : 'Birthday celebration reveal!!!'}</h1>) : (<h1>{retirementFlag ? 'Congratulations!!!' : 'Enjoy the Show!!!   '}</h1>)}
             </div>
 			{!hitTargetDate ? <TimerDisplay time={timeLeft} flag = {false} /> : <img src = {retirementFlag ? GoneFishin : EnjoyShow} alt = 'Celelbration'/>}
         </div>

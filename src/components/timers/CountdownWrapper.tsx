@@ -9,6 +9,7 @@ import { SettingsContext } from '../generic/SettingsContext.tsx';
         - Serves as a wrapper for the countdown and settings components to allow passing state varianbles between them
         - user sets the countdown clock settings within the Settings component
         - these are then made available to the Countdown component via useContex
+        - chose to use a wrapper so that I could reuse the TimerDisplay component
 */
 
 const CountdownWrapper = () => {
