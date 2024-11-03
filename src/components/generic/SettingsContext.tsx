@@ -2,9 +2,9 @@ import react from 'react';
 
 // interface for the context's state
 interface SettingsContextType {
-    hours: number | string;
-    minutes: number | string;
-    seconds: number | string;
+    hours: number;
+    minutes: number;
+    seconds: number;
     setHours: React.Dispatch<React.SetStateAction<number>>;
     setMinutes: React.Dispatch<React.SetStateAction<number>>;
     setSeconds: React.Dispatch<React.SetStateAction<number>>;

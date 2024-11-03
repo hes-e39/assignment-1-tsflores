@@ -12,8 +12,6 @@ import { TabataStats } from '../generic/TabataStats';
     - some sharing across other functions / components but not as much as I would have liked - also another opportunity as time permits
 */
 
-
-
 const Tabata = () => {
     const [rounds, setRounds] = useState<number>(0);
     const [workTarget, setWorkTarget] = useState<number>(0);

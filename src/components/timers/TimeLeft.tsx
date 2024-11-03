@@ -52,7 +52,7 @@ const TimeLeft = ({ targetDate }) => {
             <div className="text-time-left">
                 {!hitTargetDate ? (<h1>Time until {retirementFlag ?  'Retirement Celebration!!!' : 'Birthday celebration reveal!!!'}</h1>) : (<h1>{retirementFlag ? 'Congratulations!!!' : 'Enjoy the Show!!!   '}</h1>)}
             </div>
-			{!hitTargetDate ? <TimerDisplay time={timeLeft} flag = {false} /> : <img src = {retirementFlag ? GoneFishin : EnjoyShow} alt = 'Celelbration'/>}
+			{!hitTargetDate ? <TimerDisplay time={timeLeft} flag={false} hours={0} minutes={0} seconds={0} centiseconds={0} /> : <img src = {retirementFlag ? GoneFishin : EnjoyShow} alt = 'Celelbration'/>}
         </div>
     );
 };

@@ -1,4 +1,5 @@
 import { CalculateTime } from '../../utils/helpers';
+import type { timeProps } from '../../utils/helpers';
 
 /* component details 
     - reusable component that displays the the appropriate time elements for the stopwatch or countdown timers
@@ -6,7 +7,12 @@ import { CalculateTime } from '../../utils/helpers';
     - CalculateTime is a function that takes the milliseconds and converts
 */
 
-export const TimerDisplay = props => {
+interface TimerDisplayProps extends timeProps{
+    flag: boolean;
+    time: object;
+}
+
+export const TimerDisplay = (props: TimerDisplayProps ) => {
     let objTime: number | string | object = 0;
 
     if (props.flag) {

@@ -1,6 +1,11 @@
 import '../../styles/settings.css';
 
-export const TabataStats = (props) => {
+interface TabataStateProps {
+    roundsCompleted: number;
+    timeElapsed: number;
+}
+
+export const TabataStats = (props: TabataStateProps) => {
 
     return (
     <div className="stats">

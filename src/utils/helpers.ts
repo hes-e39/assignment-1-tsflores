@@ -13,14 +13,15 @@ export const BIRTHDATE: Date = new Date("2024-11-22T20:00:00");
     on the timer.
 */
 
-interface timeProps {
-    hours?: number | string;
-    minutes: number | string;
-    seconds: number | string;
-    centiseconds?: number | string;
+export interface timeProps {
+    hours: number;
+    minutes: number;
+    seconds: number;
+    centiseconds: number;
+    time: object;
 }
 
-export function CalculateTime( props ): timeProps {
+export function CalculateTime( props: timeProps ) {
 
     const hoursNumber: number = Math.floor((props.time / 3600000) % 60);
     const minutesNumber: number  = Math.floor((props.time / 60000) % 60);
