@@ -36,18 +36,18 @@ const PageIndex = () => {
         <li>
           <Link to="/countdown"><img src = {HourglassImg} alt="Countdown"/></Link>
         </li>
-        <li>
+{/*         <li>
           <Link to="/birthday"><img src = {BirthdayImg} alt="Birthday"/></Link>
-        </li>
+        </li> */}
         <li>
           <Link to="/retirement"><img src = {RetirementImg} alt="Retirement"/></Link>
         </li>
         <li>
           <Link to="/tabata"><img src = {TabataImg} alt="Tabata"/></Link>
         </li>
-        <li>
+{/*         <li>
           <Link to="/xy"><img src = {XYImg} alt="XY"/></Link>
-        </li>
+        </li> */}
       </ul>
       <Outlet />
     </div>
