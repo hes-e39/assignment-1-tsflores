@@ -33,18 +33,18 @@ const PageIndex = () => {
 {/*         <li>
           <Link to="/watch"><img src = {StopwatchImg} alt="StopWatch"/></Link>
         </li> */}
-        <li>
+{/*         <li>
           <Link to="/countdown"><img src = {HourglassImg} alt="Countdown"/></Link>
-        </li>
+        </li> */}
 {/*         <li>
           <Link to="/birthday"><img src = {BirthdayImg} alt="Birthday"/></Link>
         </li> */}
-{/*         <li>
+         <li>
           <Link to="/retirement"><img src = {RetirementImg} alt="Retirement"/></Link>
         </li>
-        <li>
+{/*         <li>
           <Link to="/tabata"><img src = {TabataImg} alt="Tabata"/></Link>
-        </li> */}
+        </li>  */}
 {/*         <li>
           <Link to="/xy"><img src = {XYImg} alt="XY"/></Link>
         </li> */}
@@ -56,8 +56,9 @@ const PageIndex = () => {
 
 const router = createHashRouter([
   {
-    path: "/",
-    element: <PageIndex />,
+    path: "/retirement",
+    element: <TimeLeft targetDate = { RETIREMENT_DATE } />,  
+{/*     element: <PageIndex />, */}
     children: [
       {
         //index: true,
