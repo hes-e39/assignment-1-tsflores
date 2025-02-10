@@ -39,9 +39,9 @@ const PageIndex = () => {
 {/*         <li>
           <Link to="/birthday"><img src = {BirthdayImg} alt="Birthday"/></Link>
         </li> */}
-         <li>
+{/*          <li>
           <Link to="/retirement"><img src = {RetirementImg} alt="Retirement"/></Link>
-        </li>
+        </li> */}
 {/*         <li>
           <Link to="/tabata"><img src = {TabataImg} alt="Tabata"/></Link>
         </li>  */}
@@ -58,6 +58,7 @@ const router = createHashRouter([
   {
     path: "/",
     element: <PageIndex />,
+    element: <TimeLeft targetDate = { RETIREMENT_DATE } />, 
     children: [
       {
         //index: true,
