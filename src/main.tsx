@@ -56,9 +56,8 @@ const PageIndex = () => {
 
 const router = createHashRouter([
   {
-    path: "/retirement",
-    element: <TimeLeft targetDate = { RETIREMENT_DATE } />,  
-{/*     element: <PageIndex />, */}
+    path: "/",
+    element: <PageIndex />,
     children: [
       {
         //index: true,
