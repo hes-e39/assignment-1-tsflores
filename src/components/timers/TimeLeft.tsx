@@ -51,7 +51,7 @@ const TimeLeft = (props: TimeLeftProps) => {
     return (
         <div className="timer-container">
             <div className="text-time-left">
-                {!hitTargetDate ? (<h1>Countdown Clock</h1>) : (<h1>{retirementFlag ? 'Congratulations!!!' : 'Enjoy the Show!!!   '}</h1>)}
+                {!hitTargetDate ? (<h1>Countdown Clock to Retirement</h1>) : (<h1>{retirementFlag ? 'Congratulations!!!' : 'Enjoy the Show!!!   '}</h1>)}
             </div>
 			{!hitTargetDate ? <TimerDisplay time={timeLeft} flag={false} hours={0} minutes={0} seconds={0} centiseconds={0} /> : <img src = {retirementFlag ? GoneFishin : EnjoyShow} alt = 'Celelbration'/>}
         </div>
