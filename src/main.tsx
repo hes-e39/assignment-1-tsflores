@@ -57,12 +57,12 @@ const PageIndex = () => {
 const router = createHashRouter([
   {
     path: "/",
-    // element: <PageIndex />,
+    element: <PageIndex />,
     element: <TimeLeft targetDate = { RETIREMENT_DATE } />,
     children: [
       {
         //index: true,
-        path: "/about",
+        path: "about",
         element: <Stopwatch />,
       },
       {
