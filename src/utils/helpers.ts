@@ -3,7 +3,7 @@
     user defined dates to target in the TimeLeft component
 */
 
-export const RETIREMENT_DATE: Date = new Date("2025-06-08T12:00:00");
+export const RETIREMENT_DATE: Date = new Date("2025-03-24T13:45:00");
 export const BIRTHDATE: Date = new Date("2024-11-22T20:00:00");
 
 
