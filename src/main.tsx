@@ -1,7 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import {
-  // Link,
+  Link,
   Outlet,
   RouterProvider,
   createHashRouter,
@@ -54,40 +54,46 @@ import XY from "./components/timers/XY.tsx";
 //   );
 // };
 
+// ✅ Layout Component that ensures correct rendering
+const Layout = () => {
+  return (
+    <div>
+      <nav>
+        <Link to="/">Home</Link> | <Link to="/about">About</Link>
+      </nav>
+      <Outlet /> {/* This allows child routes to render here */}
+    </div>
+  );
+};
+
 const router = createHashRouter([
   {
     path: "/",
-    element: (
-    <div>
-        <TimeLeft targetDate={RETIREMENT_DATE} />
-        <Outlet /> {/* This ensures child routes are rendered */}
-      </div>),
-    // <TimeLeft targetDate = { RETIREMENT_DATE } />,
+    element: <Layout />,
+    
     children: [
       {
-        //index: true,
+        index: true,
+        element: <TimeLeft targetDate = { RETIREMENT_DATE } />,
+      },
+      {
         path: "about",
         element: <Stopwatch />,
       },
       {
-        //index: true,
-        path: "/countdown",
+        path: "countdown",
         element: <CountdownWrapper />,
       },
       {
-        path: "/birthday",
+        path: "birthday",
         element: <TimeLeft targetDate = { BIRTHDATE } />,
       },
       {
-        path: "/retirement",
-        element: <TimeLeft targetDate = { RETIREMENT_DATE } />,
-      },
-      {
-        path: "/tabata",
+        path: "tabata",
         element: <Tabata />,
       },
       {
-        path: "/xy",
+        path: "xy",
         element: <XY />,
       },
     ],
