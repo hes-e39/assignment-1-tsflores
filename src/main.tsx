@@ -1,7 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import {
-  Link,
+  // Link,
   Outlet,
   RouterProvider,
   createHashRouter,
@@ -24,41 +24,45 @@ import XY from "./components/timers/XY.tsx";
 // import TabataImg from "./images/tabata_half.jpg";
 // import XYImg from "./images/xyworkout.jpg";
 
-const PageIndex = () => {
-  return (
-    <div className = "navigation">
-{/*       <h1>Countdown Timer</h1>
-      <h3>(Select a timer to get started)</h3> */}
-      <ul>
-{/*         <li>
-          <Link to="/watch"><img src = {StopwatchImg} alt="StopWatch"/></Link>
-        </li> */}
-{/*         <li>
-          <Link to="/countdown"><img src = {HourglassImg} alt="Countdown"/></Link>
-        </li> */}
-{/*         <li>
-          <Link to="/birthday"><img src = {BirthdayImg} alt="Birthday"/></Link>
-        </li> */}
-{/*          <li>
-          <Link to="/retirement"><img src = {RetirementImg} alt="Retirement"/></Link>
-        </li> */}
-{/*         <li>
-          <Link to="/tabata"><img src = {TabataImg} alt="Tabata"/></Link>
-        </li>  */}
-{/*         <li>
-          <Link to="/xy"><img src = {XYImg} alt="XY"/></Link>
-        </li> */}
-      </ul>
-      <Outlet />
-    </div>
-  );
-};
+// const PageIndex = () => {
+//   return (
+//     <div className = "navigation">
+// {/*       <h1>Countdown Timer</h1>
+//       <h3>(Select a timer to get started)</h3> */}
+//       <ul>
+// {/*         <li>
+//           <Link to="/watch"><img src = {StopwatchImg} alt="StopWatch"/></Link>
+//         </li> */}
+// {/*         <li>
+//           <Link to="/countdown"><img src = {HourglassImg} alt="Countdown"/></Link>
+//         </li> */}
+// {/*         <li>
+//           <Link to="/birthday"><img src = {BirthdayImg} alt="Birthday"/></Link>
+//         </li> */}
+// {/*          <li>
+//           <Link to="/retirement"><img src = {RetirementImg} alt="Retirement"/></Link>
+//         </li> */}
+// {/*         <li>
+//           <Link to="/tabata"><img src = {TabataImg} alt="Tabata"/></Link>
+//         </li>  */}
+// {/*         <li>
+//           <Link to="/xy"><img src = {XYImg} alt="XY"/></Link>
+//         </li> */}
+//       </ul>
+//       <Outlet />
+//     </div>
+//   );
+// };
 
 const router = createHashRouter([
   {
     path: "/",
-    element: <PageIndex />,
-    element: <TimeLeft targetDate = { RETIREMENT_DATE } />,
+    element: (
+    <div>
+        <TimeLeft targetDate={RETIREMENT_DATE} />
+        <Outlet /> {/* This ensures child routes are rendered */}
+      </div>),
+    // <TimeLeft targetDate = { RETIREMENT_DATE } />,
     children: [
       {
         //index: true,
