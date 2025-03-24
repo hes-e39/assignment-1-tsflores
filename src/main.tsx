@@ -58,9 +58,9 @@ import XY from "./components/timers/XY.tsx";
 const Layout = () => {
   return (
     <div>
-      <nav>
+      {/* <nav>
         <Link to="/">Home</Link> | <Link to="/about">About</Link>
-      </nav>
+      </nav> */}
       <Outlet /> {/* This allows child routes to render here */}
     </div>
   );
