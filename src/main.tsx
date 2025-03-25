@@ -8,15 +8,21 @@ import {
 } from "react-router-dom";
 
 import "./index.css";
-// import Stopwatch from "./components/timers/Stopwatch";
 import TimeLeft from "./components/timers/TimeLeft";
+import FLORES_FAMILY_PHOTO from './images/flores_family_color.jpg';
 
 import { GRADUATION_DATE, CAMINO_DATE, ACDC_CONCERT_DATE, SHAKIRA_CONCERT_DATE, METALLICA_CONCERT_DATE} from './utils/helpers.ts';
-//import Countdown from "./components/timers/Countdown";
-//import CountdownWrapper from "./components/timers/CountdownWrapper.tsx";
 
-
-
+// Home Component with Image and Content
+const Home = () => {
+  return (
+    <div className="home_content">
+      <h1>Welcome to the Flores Family Events Countdown Site</h1>
+      <p>Select an event to see how long you have to wait</p>
+      <img src={FLORES_FAMILY_PHOTO} alt="Event Banner" className="home_image" />
+    </div>
+  );
+}
 
 //Layout Component that ensures correct rendering
 const Layout = () => {
@@ -42,15 +48,10 @@ const router = createHashRouter([
     element: <Layout />,
     
     children: [
-      // {
-      //   index: true,
-      //   element: <TimeLeft targetDate = { RETIREMENT_DATE } />,
-      // },
-      // {
-      //   index: true,
-      //   path: "stopwatch",
-      //   element: <Stopwatch />,
-      // },
+      {
+        index:true,
+        element: <Home />,
+      },
       {
         path: "camino",
         element: <TimeLeft targetDate = { CAMINO_DATE } />,
@@ -75,7 +76,7 @@ const router = createHashRouter([
   },
 ]);
 
-//biome-ignore lint/style/noNonNullAssertion: root html element is there
+
 createRoot(document.getElementById("root")!).render(
    <StrictMode>
     <RouterProvider router={router} />
