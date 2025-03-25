@@ -1,3 +1,61 @@
-// Add helpers here. This is usually code that is just JS and not React code. Example: write a function that
-// calculates number of minutes when passed in seconds. Things of this nature that you don't want to copy/paste
-// everywhere.
+
+/*
+    user defined dates to target in the TimeLeft component
+*/
+export const RETIREMENT_DATE: Date = new Date("2025-06-08T12:00:00");
+export const CAMINO_DATE: Date = new Date("2025-06-08T12:00:00");
+export const GRADUATION_DATE: Date = new Date("2025-05-03T12:00:00");
+export const ACDC_CONCERT_DATE: Date = new Date("2025-05-20T19:00:00");
+export const SHAKIRA_CONCERT_DATE: Date = new Date("2025-06-02T19:00:00");
+export const METALLICA_CONCERT_DATE: Date = new Date("2025-06-03T19:00:00");
+
+
+/*
+    helper function used to calculate the time remaining.  The time comes in as milliseconds and then is broken down into
+    hours, minutes, seconds, and centiseconds.  For display purposes, a comparison is made to ensure 2 digits are shown
+    on the timer.
+*/
+
+export interface timeProps {
+    hours: number;
+    minutes: number;
+    seconds: number;
+    centiseconds: number;
+    time: object;
+}
+
+export function CalculateTime( props: timeProps ) {
+
+    const hoursNumber: number = Math.floor((Number(props.time) / 3600000) % 60);
+    const minutesNumber: number  = Math.floor((Number(props.time) / 60000) % 60);
+    const secondsNumber: number  = Math.floor((Number(props.time) / 1000) % 60);
+    const centisecondsNumber: number  = (Number(props.time) / 10) % 100;
+
+    const hours = hoursNumber < 10 ? `0${hoursNumber}` : hoursNumber;
+    const minutes = minutesNumber < 10 ? `0${minutesNumber}` : minutesNumber;
+    const seconds = secondsNumber < 10 ? `0${secondsNumber}` : secondsNumber;
+    const centiseconds = centisecondsNumber < 10 ? `0${centisecondsNumber}` : centisecondsNumber;
+
+
+    return{ hours, minutes, seconds, centiseconds };
+
+}
+
+/* 
+    helper function that takes target date as a prop and then compares it to the current date.  The difference between the two
+    is then divided into days, hours, minutes, and seconds and returned as an object.
+*/
+export function CalculateTimeRemaining(targetDate: Date) {
+    
+    const currentDate: Date = new Date();
+    const totalTimeLeft: number = Number(targetDate) - Number(currentDate);
+	const days = Math.floor(totalTimeLeft / (1000 * 60 * 60 * 24));
+	const hours = Math.floor((totalTimeLeft / (1000 * 60 * 60)) % 24);
+	const minutes = Math.floor((totalTimeLeft / (1000 * 60)) % 60);
+	const seconds = Math.floor((totalTimeLeft / 1000) % 60);
+	return { days, hours, minutes, seconds };
+
+}
+
+
+

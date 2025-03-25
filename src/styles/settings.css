@@ -1,0 +1,66 @@
+.settings .content {
+    padding-top: 2rem;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: auto;
+    gap: 12px;
+    padding-bottom: 2rem;
+}
+
+.settings .value {
+    font-size: 30px;
+    font-weight: 600;
+    background-color: #322738;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    width: 80px;
+    height: 80px;
+    position: relative;
+    box-shadow: -2px 0px 5px 1px #232423ad;
+    text-align: center;
+}
+
+.settings .label {
+    display: flex;
+    font-size: 20px;
+    font-weight: 100;
+    letter-spacing: 4px;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+
+@media screen and (min-width: 550px) {
+    .settings .content {
+        gap: 30px;
+    }
+
+    .settings .value {
+        font-size: 50px;
+        width: 120px;
+        height: 120px;
+    }
+
+    .settings .box {
+        height: 200px;
+        max-width: 200px;
+    }
+}
+
+@media screen and (min-width: 1070px) {
+    .settings .value {
+        font-size: 100px;
+        height: 180px;
+        width: 180px;
+    }
+
+    .countdown .box {
+        max-width: 180px;
+        height: 200px;
+    }
+}
