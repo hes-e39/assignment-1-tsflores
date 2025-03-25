@@ -8,60 +8,30 @@ import {
 } from "react-router-dom";
 
 import "./index.css";
-import Stopwatch from "./components/timers/Stopwatch";
+// import Stopwatch from "./components/timers/Stopwatch";
 import TimeLeft from "./components/timers/TimeLeft";
 
-import { RETIREMENT_DATE, BIRTHDATE} from './utils/helpers.ts';
+import { GRADUATION_DATE, CAMINO_DATE, ACDC_CONCERT_DATE, SHAKIRA_CONCERT_DATE, METALLICA_CONCERT_DATE} from './utils/helpers.ts';
 //import Countdown from "./components/timers/Countdown";
-import CountdownWrapper from "./components/timers/CountdownWrapper.tsx";
-import Tabata from "./components/timers/Tabata";
-import XY from "./components/timers/XY.tsx";
+//import CountdownWrapper from "./components/timers/CountdownWrapper.tsx";
 
-// import StopwatchImg from "./images/stopwatch_half.jpg";
-// import HourglassImg from "./images/hourglass_half.jpg";
-// import BirthdayImg from "./images/verticalcake_half.jpg";
-// import RetirementImg from "./images/retirementTimer_half.jpg";
-// import TabataImg from "./images/tabata_half.jpg";
-// import XYImg from "./images/xyworkout.jpg";
 
-// const PageIndex = () => {
-//   return (
-//     <div className = "navigation">
-// {/*       <h1>Countdown Timer</h1>
-//       <h3>(Select a timer to get started)</h3> */}
-//       <ul>
-// {/*         <li>
-//           <Link to="/watch"><img src = {StopwatchImg} alt="StopWatch"/></Link>
-//         </li> */}
-// {/*         <li>
-//           <Link to="/countdown"><img src = {HourglassImg} alt="Countdown"/></Link>
-//         </li> */}
-// {/*         <li>
-//           <Link to="/birthday"><img src = {BirthdayImg} alt="Birthday"/></Link>
-//         </li> */}
-// {/*          <li>
-//           <Link to="/retirement"><img src = {RetirementImg} alt="Retirement"/></Link>
-//         </li> */}
-// {/*         <li>
-//           <Link to="/tabata"><img src = {TabataImg} alt="Tabata"/></Link>
-//         </li>  */}
-// {/*         <li>
-//           <Link to="/xy"><img src = {XYImg} alt="XY"/></Link>
-//         </li> */}
-//       </ul>
-//       <Outlet />
-//     </div>
-//   );
-// };
 
-// ✅ Layout Component that ensures correct rendering
+
+//Layout Component that ensures correct rendering
 const Layout = () => {
   return (
-    <div>
-      {/* <nav>
-        <Link to="/">Home</Link> | <Link to="/about">About</Link>
-      </nav> */}
-      <Outlet /> {/* This allows child routes to render here */}
+    <div className = "page_layout">
+      <nav className = "navigation">
+        <Link to="/">Home</Link>
+        <Link to="/graduation">Graduation</Link>
+        <Link to="/camino">Camino</Link>
+        <Link to="/acdc_concert">AC/DC</Link>
+        <Link to="/metallica_concert">Metallica</Link>
+        <Link to="/shakira_concert">Shakira</Link>
+        {/* <Link to="/stopwatch">Stopwatch</Link> */}
+      </nav>
+      <Outlet /> 
     </div>
   );
 };
@@ -72,29 +42,34 @@ const router = createHashRouter([
     element: <Layout />,
     
     children: [
+      // {
+      //   index: true,
+      //   element: <TimeLeft targetDate = { RETIREMENT_DATE } />,
+      // },
+      // {
+      //   index: true,
+      //   path: "stopwatch",
+      //   element: <Stopwatch />,
+      // },
       {
-        index: true,
-        element: <TimeLeft targetDate = { RETIREMENT_DATE } />,
+        path: "camino",
+        element: <TimeLeft targetDate = { CAMINO_DATE } />,
       },
       {
-        path: "about",
-        element: <Stopwatch />,
+        path: "acdc_concert",
+        element: <TimeLeft targetDate = { ACDC_CONCERT_DATE } />,
       },
       {
-        path: "countdown",
-        element: <CountdownWrapper />,
+        path: "graduation",
+        element: <TimeLeft targetDate = { GRADUATION_DATE } />,
       },
       {
-        path: "birthday",
-        element: <TimeLeft targetDate = { BIRTHDATE } />,
+        path: "shakira_concert",
+        element: <TimeLeft targetDate = { SHAKIRA_CONCERT_DATE } />,
       },
       {
-        path: "tabata",
-        element: <Tabata />,
-      },
-      {
-        path: "xy",
-        element: <XY />,
+        path: "metallica_concert",
+        element: <TimeLeft targetDate = { METALLICA_CONCERT_DATE } />,
       },
     ],
   },

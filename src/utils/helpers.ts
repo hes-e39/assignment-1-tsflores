@@ -2,9 +2,12 @@
 /*
     user defined dates to target in the TimeLeft component
 */
-
 export const RETIREMENT_DATE: Date = new Date("2025-06-08T12:00:00");
-export const BIRTHDATE: Date = new Date("2024-11-22T20:00:00");
+export const CAMINO_DATE: Date = new Date("2025-06-08T12:00:00");
+export const GRADUATION_DATE: Date = new Date("2025-05-03T12:00:00");
+export const ACDC_CONCERT_DATE: Date = new Date("2025-05-20T19:00:00");
+export const SHAKIRA_CONCERT_DATE: Date = new Date("2025-06-02T19:00:00");
+export const METALLICA_CONCERT_DATE: Date = new Date("2025-06-03T19:00:00");
 
 
 /*

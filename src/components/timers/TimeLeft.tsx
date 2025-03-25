@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import { CalculateTimeRemaining } from '../../utils/helpers.ts';
-import { RETIREMENT_DATE } from '../../utils/helpers.ts';
+import { RETIREMENT_DATE, ACDC_CONCERT_DATE, GRADUATION_DATE, SHAKIRA_CONCERT_DATE, METALLICA_CONCERT_DATE, CAMINO_DATE } from '../../utils/helpers.ts';
 import { TimerDisplay } from '../generic/TimerDisplay.tsx';
-// import GoneFishin from '../../images/gonefishing_half.jpg';
 import EnjoyShow from '../../images/enjoytheshow_half.jpg';
 import CaminoImage from '../../images/camino_img.jpg'
 
@@ -21,19 +20,34 @@ interface TimeLeftProps {
 
 const TimeLeft = (props: TimeLeftProps) => {
 
-    const formattedTargetDate = props.targetDate.toLocaleDateString();
-    const formattedRetirementDate = RETIREMENT_DATE.toLocaleDateString();
+    // Mapping of dates to event names
+    const eventTitles: Record<string, string> = {
+        [RETIREMENT_DATE.toLocaleDateString()]: "Countdown to Retirement",
+        [CAMINO_DATE.toLocaleDateString()]: "Countdown Clock to Camino de Santiago Pilgrimage",
+        [ACDC_CONCERT_DATE.toLocaleDateString()]: "Countdown to AC/DC Concert",
+        [METALLICA_CONCERT_DATE.toLocaleDateString()]: "Countdown to Metallica Concert",
+        [SHAKIRA_CONCERT_DATE.toLocaleDateString()]: "Countdown to Shakira Concert",
+        [GRADUATION_DATE.toLocaleDateString()]: "Countdown to Graduation",
+    };
 
-    const [retirementFlag, setRetirementFlag] = useState(false);
+     const formattedTargetDate = props.targetDate.toLocaleDateString();
+     const formattedRetirementDate = RETIREMENT_DATE.toLocaleDateString();
+
+    const [imageFlag, setImageFlag] = useState(false);
     const [timeLeft, setTimeLeft] = useState(() => CalculateTimeRemaining(props.targetDate));
     const [hitTargetDate, setHitTargetDate] = useState(false);
+    const [eventTitle, setEventTitle] = useState("Countdown Event");
 
     // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
     useEffect(() => {
         if (formattedTargetDate === formattedRetirementDate) {
-            setRetirementFlag(true);
+            setImageFlag(true);
         }
 
+        if(eventTitles[formattedTargetDate]){
+            setEventTitle(eventTitles[formattedTargetDate]);
+        }
+        
         const timer = setInterval(() => {
             if (timeLeft.seconds >= 0) {
                 setTimeLeft(CalculateTimeRemaining(props.targetDate));
@@ -46,15 +60,15 @@ const TimeLeft = (props: TimeLeftProps) => {
         return () => {
             clearInterval(timer);
         };
-    }, [timeLeft, retirementFlag]);
+    }, [timeLeft, imageFlag]);
 
 
     return (
         <div className="timer-container">
             <div className="text-time-left">
-                {!hitTargetDate ? (<h1>Countdown Clock to Camino de Santiago Pilgrimage</h1>) : (<h1>{retirementFlag ? 'Safe Travels!!' : 'Enjoy the Show!!!   '}</h1>)}
+                {!hitTargetDate ? (<h1>{eventTitle}</h1>) : (<h1>Enjoy Your Event</h1>)}
             </div>
-			{!hitTargetDate ? <TimerDisplay time={timeLeft} flag={false} hours={0} minutes={0} seconds={0} centiseconds={0} /> : <img src = {retirementFlag ? CaminoImage : EnjoyShow} alt = 'Celelbration'/>}
+			{!hitTargetDate ? <TimerDisplay time={timeLeft} flag={false} hours={0} minutes={0} seconds={0} centiseconds={0} /> : <img src = {imageFlag ? CaminoImage : EnjoyShow} alt = 'Celelbration'/>}
         </div>
     );
 };

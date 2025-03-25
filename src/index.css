@@ -1,5 +1,5 @@
 body {
-  margin: auto;
+  /* margin: auto; */
   padding: 0;
   font-family: Lato, Calibri, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -10,11 +10,26 @@ body {
   color: white;
 }
 
-.navigation{
-	height: 100vh;
-	padding: 2rem;
+.page_layout{
+	height: 90vh;
 	display: flex;
-	flex-direction: column;
+	margin: 1rem;
+}
+
+.navigation{
+	/* height: 75vh; */
+	width: 25vw;
+	padding: 2rem;
+	font-size: 1.25rem;
+	display: grid;
+	justify-content: left;
+	align-content: center;
+}
+
+.navigation a{
+	padding: 1.25rem;
+	color: white;
+	text-decoration: none;
 }
 
 h1 {
@@ -68,7 +83,7 @@ li a:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 90vh;
+  width: 75vw;
 }
 
 .Control-Buttons {
@@ -123,6 +138,7 @@ li a:hover {
 	gap: 12px;
 	padding-top:2rem;
 	padding-bottom:2rem;
+	
 }
 
 .countdown .box {
@@ -196,6 +212,7 @@ li a:hover {
 
 
 @media screen and (min-width: 550px) {
+
 	.countdown .content {
 		gap: 30px;
 	}
@@ -210,9 +227,10 @@ li a:hover {
 	}
 }
 
-@media screen and (min-width: 1070px) {
+
+@media screen and (min-width: 980px) {
 	h1{
-		font-size: 2.5rem;
+		font-size: 2rem;
 	}
 
 	h2{
@@ -230,6 +248,52 @@ li a:hover {
 		max-width: 180px;
 		height: 200px;
 	}
+
+	.timer-container{
+		margin-right:3rem;
+	}
+}
+
+@media screen and (max-width: 550px) {
+
+	.page_layout,
+	.navigation,
+	.timer-container,
+	h1 {
+		width: 100vw;
+	}
+
+	.page_layout {
+		display: block;
+		margin: 0rem;
+	}
+
+	.navigation {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		margin: 0rem;
+		padding:2rem 0rem;
+
+	}
+	.navigation a {
+		font-size: 5vw;
+		padding: 1.5vw;
+		text-align: center;
+	}
+
+	.countdown .label{
+		font-size: 3vw;
+	}
+
+	.timer-container{
+		height:70vh;
+		margin-right: 1rem;
+	}
+
+	.text-time-left{
+		padding-bottom: 0rem;
+	}
+
 }
 
 
